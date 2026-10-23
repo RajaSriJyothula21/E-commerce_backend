@@ -2,11 +2,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dns = require("dns");
+// const dns = require("dns");
 
 require("dotenv").config();
 
-dns.setServers(["1.1.1.1", "8.8.8.8"]);
+// dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const app = express();
 
@@ -30,7 +30,7 @@ mongoose
   .then(() => {
     console.log("MongoDB connected successfully");
 
-    app.listen(PORT, "0.0.0.0", () => {
+    app.listen(PORT,() => {
       console.log(`Server listening on port ${PORT}`);
     });
   })
