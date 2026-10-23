@@ -20,7 +20,7 @@ mongoose
     .then(() => {
         console.log("MongoDB connected successfully");
 
-        app.listen(process.env.PORT, () => {
+        app.listen(process.env.PORT ||5000, () => {
             console.log("Server running on port 5000");
         });
     })
