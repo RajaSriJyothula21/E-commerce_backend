@@ -2,11 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-// const dns = require("dns");
-
 require("dotenv").config();
-
-// dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const app = express();
 
@@ -22,7 +18,7 @@ app.get("/", (req, res) => {
 // Products API
 app.use("/api/products", require("./Routes/Productroutes"));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 // Connect MongoDB and start server
 mongoose
@@ -30,8 +26,8 @@ mongoose
   .then(() => {
     console.log("MongoDB connected successfully");
 
-    app.listen(PORT,() => {
-      console.log(`Server listening on port ${PORT}`);
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server listening on 0.0.0.0:${PORT}`);
     });
   })
   .catch((error) => {
